@@ -28,7 +28,7 @@ void User::setPassword(string password)
 
 int User::getUserId()
 {
-    this->userId = userId;
+   return userId;
 }
 
 string User::getName()
