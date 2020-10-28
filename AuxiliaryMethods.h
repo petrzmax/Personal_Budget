@@ -18,7 +18,7 @@ public:
     static string getLine();
     static char getChar();
     static int getInteger();
-    static string floatToString();
+    static string floatToString(float floatNumber);
     static float stringToFloat(string floatNumber);
     static string commaToDotInString();
 

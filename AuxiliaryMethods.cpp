@@ -43,9 +43,9 @@ int AuxiliaryMethods::getInteger()
     return number;
 }
 
-string AuxiliaryMethods::floatToString()
+string AuxiliaryMethods::floatToString(float floatNumber)
 {
-
+    return to_string(floatNumber);
 }
 
 float AuxiliaryMethods::stringToFloat(string floatNumber)
