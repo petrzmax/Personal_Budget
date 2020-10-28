@@ -60,7 +60,7 @@ string AuxiliaryMethods::commaToDotInString()
 
 time_t AuxiliaryMethods::getCurrentUnixDate()
 {
-
+    return time(0);
 }
 
 string AuxiliaryMethods::unixTimeToStringDate()
