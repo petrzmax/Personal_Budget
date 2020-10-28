@@ -2,6 +2,7 @@
 #define AUXILIARYMETHODS_H
 
 #include <iostream>
+#include <sstream>
 #include <map>
 
 using namespace std;
