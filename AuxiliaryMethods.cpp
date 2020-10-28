@@ -63,9 +63,17 @@ time_t AuxiliaryMethods::getCurrentUnixDate()
     return time(0);
 }
 
-string AuxiliaryMethods::unixTimeToStringDate()
+string AuxiliaryMethods::unixTimeToStringDate(time_t unixTime)
 {
+    string date = "";
 
+    tm *localTime = localtime(&unixTime);
+
+    date += to_string(1900 + localTime->tm_year);
+    date += "-" + to_string(1 + localTime->tm_mon);
+    date += "-" + to_string(localTime->tm_mday);
+
+    return date;
 }
 
 time_t AuxiliaryMethods::stringDateToUnixTime()

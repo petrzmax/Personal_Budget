@@ -23,7 +23,7 @@ public:
     static string commaToDotInString();
 
     static time_t getCurrentUnixDate();
-    static string unixTimeToStringDate();
+    static string unixTimeToStringDate(time_t unixTime);
     static time_t stringDateToUnixTime();
     static bool isDateCorrect();
     static bool isYearLeap(int year);
