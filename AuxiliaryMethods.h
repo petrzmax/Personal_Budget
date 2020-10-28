@@ -25,7 +25,7 @@ public:
     static string unixTimeToStringDate();
     static time_t stringDateToUnixTime();
     static bool isDateCorrect();
-    static bool isYearLeap();
+    static bool isYearLeap(int year);
 
 };
 #endif // AUXILIARYMETHODS_H
