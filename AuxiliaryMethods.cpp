@@ -2,7 +2,9 @@
 
 string AuxiliaryMethods::getLine()
 {
-
+    string temporaryLine;
+    getline(cin, temporaryLine);
+    return temporaryLine;
 }
 
 char AuxiliaryMethods::getChar()

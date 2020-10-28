@@ -1,9 +1,8 @@
 #ifndef AUXILIARYMETHODS_H
 #define AUXILIARYMETHODS_H
 
+#include <iostream>
 #include <map>
-
-
 
 using namespace std;
 
