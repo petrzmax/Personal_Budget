@@ -18,7 +18,7 @@ public:
     static char getChar();
     static int getInteger();
     static string floatToString();
-    static float stringToFloat();
+    static float stringToFloat(string floatNumber);
     static string commaToDotInString();
 
     static time_t getCurrentUnixDate();

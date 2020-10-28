@@ -48,9 +48,9 @@ string AuxiliaryMethods::floatToString()
 
 }
 
-float AuxiliaryMethods::stringToFloat()
+float AuxiliaryMethods::stringToFloat(string floatNumber)
 {
-
+    return atof(floatNumber.c_str());
 }
 
 string AuxiliaryMethods::commaToDotInString()
