@@ -22,7 +22,7 @@ public:
     static float stringToFloat(string floatNumber);
     static string commaToDotInString();
 
-    static time_t getCurrentUnixDate();
+    static time_t getCurrentUnixTime();
     static string unixTimeToStringDate(time_t unixTime);
     static time_t stringDateToUnixTime();
     static bool isDateCorrect();

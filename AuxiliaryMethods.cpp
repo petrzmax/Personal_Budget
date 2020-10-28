@@ -58,7 +58,7 @@ string AuxiliaryMethods::commaToDotInString()
 
 }
 
-time_t AuxiliaryMethods::getCurrentUnixDate()
+time_t AuxiliaryMethods::getCurrentUnixTime()
 {
     return time(0);
 }
