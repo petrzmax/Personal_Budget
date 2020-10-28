@@ -9,7 +9,21 @@ string AuxiliaryMethods::getLine()
 
 char AuxiliaryMethods::getChar()
 {
+    string input = "";
+    char temporaryChar  = NULL;
 
+    while (true)
+    {
+        getline(cin, input);
+
+        if (input.length() == 1)
+        {
+            temporaryChar = input[0];
+            break;
+        }
+        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+    }
+    return temporaryChar;
 }
 
 int AuxiliaryMethods::getInteger()
