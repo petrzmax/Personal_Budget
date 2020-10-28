@@ -20,7 +20,7 @@ public:
     static int getInteger();
     static string floatToString(float floatNumber);
     static float stringToFloat(string floatNumber);
-    static string commaToDotInString();
+    static string commaToDotInString(string inputString);
 
     static time_t getCurrentUnixTime();
     static string unixTimeToStringDate(time_t unixTime);

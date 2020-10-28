@@ -53,9 +53,13 @@ float AuxiliaryMethods::stringToFloat(string floatNumber)
     return atof(floatNumber.c_str());
 }
 
-string AuxiliaryMethods::commaToDotInString()
+string AuxiliaryMethods::commaToDotInString(string inputString)
 {
+    for(int i = 0; i < inputString.length(); i++)
+        if(inputString[i] == ',')
+            inputString[i] = '.';
 
+    return inputString;
 }
 
 time_t AuxiliaryMethods::getCurrentUnixTime()
