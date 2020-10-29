@@ -29,8 +29,6 @@ class AuxiliaryMethods
     static bool isYearLeap(int year);
 
 public:
-    AuxiliaryMethods();
-
     static string getLine();
     static char getChar();
     static int getInteger();
