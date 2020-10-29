@@ -37,7 +37,7 @@ void PersonalBudget::changePassword()
 
 void PersonalBudget::logoutUser()
 {
-
+    userManager.logoutUser();
 }
 
 void PersonalBudget::addIncome()
