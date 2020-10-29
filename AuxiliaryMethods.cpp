@@ -80,9 +80,15 @@ string AuxiliaryMethods::unixTimeToStringDate(time_t unixTime)
     return date;
 }
 
-time_t AuxiliaryMethods::stringDateToUnixTime()
+time_t AuxiliaryMethods::stringDateToUnixTime(string stringDate)
 {
+    struct tm timeStruct = {};
 
+    istringstream stringStream(stringDate);
+
+    stringStream >> get_time(&timeStruct, "%Y-%m-%d");
+
+    return mktime(&timeStruct);
 }
 
 bool AuxiliaryMethods::isDateCorrect()

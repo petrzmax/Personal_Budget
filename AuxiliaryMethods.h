@@ -2,6 +2,7 @@
 #define AUXILIARYMETHODS_H
 
 #include <iostream>
+#include <iomanip>
 #include <sstream>
 #include <map>
 #include <time.h>
@@ -24,8 +25,8 @@ public:
 
     static time_t getCurrentUnixTime();
     static string unixTimeToStringDate(time_t unixTime);
-    static time_t stringDateToUnixTime();
     static bool isDateCorrect();
+    static time_t stringDateToUnixTime(string stringDate);
     static bool isYearLeap(int year);
 
 };
