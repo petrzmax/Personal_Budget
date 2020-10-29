@@ -13,7 +13,7 @@ class UserManager
 
     User getNewUserData();
     int getNewUserId();
-    bool loginExist();
+    bool loginExist(string login);
 
 public:
 
