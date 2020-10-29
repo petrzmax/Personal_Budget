@@ -50,7 +50,11 @@ bool UserManager::loginExist(string login)
 
 void UserManager::registerUser()
 {
+    User newUser = getNewUserData();
+    users.push_back(newUser);
 
+    userFile.appendUserToFile(newUser);
+    cout << "Konto zalozone pomyslnie!";
 }
 
 void UserManager::loginUser()
