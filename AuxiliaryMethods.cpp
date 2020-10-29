@@ -143,6 +143,9 @@ bool AuxiliaryMethods::isDateCorrect(string stringDate)
     getline(stringStream, input);
     inputDay = atoi(input.c_str());
 
+    if(isCharInDate(stringDate))
+        return false;
+
     if(inputYear < 2000 || inputYear > currentYear)
         return false;
 
@@ -156,7 +159,7 @@ bool AuxiliaryMethods::isDateCorrect(string stringDate)
         return false;
 
     if(inputDay > getNumberOfDaysInMonth(inputMonth, inputYear))
-            return false;
+        return false;
 
     return true;
 }
