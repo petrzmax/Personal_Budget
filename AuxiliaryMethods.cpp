@@ -71,7 +71,7 @@ string AuxiliaryMethods::unixTimeToStringDate(time_t unixTime)
 {
     string date = "";
 
-    tm *localTime = localtime(&unixTime);
+    struct tm *localTime = localtime(&unixTime);
 
     date += to_string(1900 + localTime->tm_year);
     date += "-" + to_string(1 + localTime->tm_mon);
