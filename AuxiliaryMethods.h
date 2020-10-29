@@ -12,6 +12,7 @@ using namespace std;
 class AuxiliaryMethods
 {
     static int getNumberOfDaysInMonth(int monthNumber, int year);
+    static bool isCharInDate(string stringDate);
 
 public:
     AuxiliaryMethods();

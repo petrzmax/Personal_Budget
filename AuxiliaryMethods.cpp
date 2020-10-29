@@ -16,6 +16,17 @@ int AuxiliaryMethods::getNumberOfDaysInMonth(int monthNumber, int year)
         return DAYS_IN_MONTHS[monthNumber-1];
 }
 
+bool AuxiliaryMethods::isCharInDate(string stringDate)
+{
+    for(int i = 0; i < stringDate.length(); i++)
+        if((stringDate[i] >= '0' && stringDate[i] <= '9') || stringDate[i] == '-')
+            continue;
+        else
+            return true;
+
+    return false;
+}
+
 string AuxiliaryMethods::getLine()
 {
     string temporaryLine = "";
