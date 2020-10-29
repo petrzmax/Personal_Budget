@@ -107,9 +107,47 @@ time_t AuxiliaryMethods::stringDateToUnixTime(string stringDate)
     return mktime(&timeStruct);
 }
 
-bool AuxiliaryMethods::isDateCorrect()
+bool AuxiliaryMethods::isDateCorrect(string stringDate)
 {
+    int inputYear = 0, inputMonth = 0, inputDay = 0;
+    int currentYear = 0, currentMonth = 0;
 
+
+    string input;
+    time_t currentTime = getCurrentUnixTime();
+
+    struct tm *localTime = localtime(&currentTime);
+
+    currentYear = 1900 + localTime->tm_year;
+    currentMonth = 1 + localTime->tm_mon;
+
+    istringstream stringStream(stringDate);
+
+    getline(stringStream, input, '-');
+    inputYear = atoi(input.c_str());
+
+    getline(stringStream, input, '-');
+    inputMonth = atoi(input.c_str());
+
+    getline(stringStream, input);
+    inputDay = atoi(input.c_str());
+
+    if(inputYear < 2000 || inputYear > currentYear)
+        return false;
+
+    if(inputMonth < 1 || inputMonth > 12)
+        return false;
+
+    if(inputYear == currentYear && inputMonth > currentMonth)
+        return false;
+
+    if(inputDay < 1 || inputDay > 31)
+        return false;
+
+    if(inputDay > getNumberOfDaysInMonth(inputMonth, inputYear))
+            return false;
+
+    return true;
 }
 
 bool AuxiliaryMethods::isYearLeap(int year)

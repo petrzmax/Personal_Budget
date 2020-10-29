@@ -25,8 +25,8 @@ public:
 
     static time_t getCurrentUnixTime();
     static string unixTimeToStringDate(time_t unixTime);
-    static bool isDateCorrect();
     static time_t stringDateToUnixTime(string stringDate);
+    static bool isDateCorrect(string stringDate);
     static bool isYearLeap(int year);
 
 };
