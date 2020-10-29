@@ -64,7 +64,7 @@ void UserManager::loginUser()
 
 void UserManager::logoutUser()
 {
-
+    loggedUserId = 0;
 }
 
 void UserManager::changePassword()
