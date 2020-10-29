@@ -7,7 +7,10 @@ User UserManager::getNewUserData()
 
 int UserManager::getNewUserId()
 {
-
+    if(users.empty())
+        return 1;
+    else
+        return users.back().getUserId() + 1;
 }
 
 bool UserManager::loginExist(string login)
