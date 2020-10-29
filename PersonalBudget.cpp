@@ -22,7 +22,7 @@ float PersonalBudget::getPeriodIncomes()
 
 void PersonalBudget::registerUser()
 {
-
+    userManager.registerUser();
 }
 
 void PersonalBudget::loginUser()
