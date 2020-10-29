@@ -4,16 +4,16 @@
 #include <iostream>
 #include <iomanip>
 #include <sstream>
-#include <map>
+#include <vector>
 #include <time.h>
 
 using namespace std;
 
 class AuxiliaryMethods
 {
-public:
-    static map<int, int> DAYS_IN_MONTHS;
+    static int getNumberOfDaysInMonth(int monthNumber, int year);
 
+public:
     AuxiliaryMethods();
 
     static string getLine();

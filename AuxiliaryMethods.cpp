@@ -1,5 +1,21 @@
 #include "AuxiliaryMethods.h"
 
+int AuxiliaryMethods::getNumberOfDaysInMonth(int monthNumber, int year)
+{
+    int februaryDaysNumber = 28;
+
+    if(isYearLeap(year))
+        februaryDaysNumber = 29;
+
+    const vector<int> DAYS_IN_MONTHS = {31, februaryDaysNumber, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+
+    if(monthNumber < 1 || monthNumber > 12)
+        return 0;
+    else
+        return DAYS_IN_MONTHS[monthNumber-1];
+}
+
 string AuxiliaryMethods::getLine()
 {
     string temporaryLine = "";
