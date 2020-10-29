@@ -6,6 +6,7 @@
 #include <sstream>
 #include <vector>
 #include <time.h>
+#include <windows.h>
 
 // const values for static methods
 #define UNIX_YEAR_OFFSET 1900
@@ -19,6 +20,9 @@
 #define MAXIMUM_ALLOWED_DAY 31
 
 #define FEBRUARY_DAYS_NUMBER 28
+
+// settings
+#define MESSAGE_TIME 2000
 
 using namespace std;
 
@@ -36,6 +40,7 @@ public:
     static float stringToFloat(string floatNumber);
     static int stringToInt(string intNumber);
     static string commaToDotInString(string inputString);
+    static void timedMessage(string message);
 
     static time_t getCurrentUnixTime();
     static string unixTimeToStringDate(time_t unixTime);

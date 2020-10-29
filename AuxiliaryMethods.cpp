@@ -104,6 +104,12 @@ string AuxiliaryMethods::commaToDotInString(string inputString)
     return inputString;
 }
 
+void AuxiliaryMethods::timedMessage(string message)
+{
+    cout << message << endl;
+    Sleep(MESSAGE_TIME);
+}
+
 time_t AuxiliaryMethods::getCurrentUnixTime()
 {
     return time(0);
