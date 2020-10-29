@@ -2,6 +2,7 @@
 #define USERMANAGER_H
 
 #include "UserFile.h"
+#include "AuxiliaryMethods.h"
 
 using namespace std;
 

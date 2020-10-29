@@ -2,7 +2,30 @@
 
 User UserManager::getNewUserData()
 {
+    User newUser;
 
+    newUser.setUserId(getNewUserId());
+
+    cout << "Podaj imie: ";
+    newUser.setName(AuxiliaryMethods::getLine());
+
+    cout << "Podaj nazwisko: ";
+    newUser.setSurname(AuxiliaryMethods::getLine());
+
+    cout << "Podaj login: ";
+
+    do
+    {
+        newUser.setLogin(AuxiliaryMethods::getLine());
+    }
+    while(loginExist(newUser.getLogin()));
+
+    cout << "Podaj haslo: ";
+    newUser.setPassword(AuxiliaryMethods::getLine());
+
+    cout << "Podaj hasło ponownie: ";
+    if(newUser.getPassword() == AuxiliaryMethods::getLine())
+        return newUser;
 }
 
 int UserManager::getNewUserId()
