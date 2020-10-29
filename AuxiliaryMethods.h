@@ -22,6 +22,7 @@ public:
     static int getInteger();
     static string floatToString(float floatNumber);
     static float stringToFloat(string floatNumber);
+    static int stringToInt(string intNumber);
     static string commaToDotInString(string inputString);
 
     static time_t getCurrentUnixTime();

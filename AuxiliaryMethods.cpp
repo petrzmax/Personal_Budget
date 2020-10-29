@@ -80,6 +80,11 @@ float AuxiliaryMethods::stringToFloat(string floatNumber)
     return atof(floatNumber.c_str());
 }
 
+int AuxiliaryMethods::stringToInt(string intNumber)
+{
+    return atoi(intNumber.c_str());
+}
+
 string AuxiliaryMethods::commaToDotInString(string inputString)
 {
     for(int i = 0; i < inputString.length(); i++)
