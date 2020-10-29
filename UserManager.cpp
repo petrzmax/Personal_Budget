@@ -102,5 +102,8 @@ void UserManager::changePassword()
 
 bool UserManager::isUserLoggedIn()
 {
-
+    if(loggedUserId > 0)
+        return true;
+    else
+        return false;
 }
