@@ -27,7 +27,7 @@ void PersonalBudget::registerUser()
 
 void PersonalBudget::loginUser()
 {
-
+    userManager.loginUser();
 }
 
 void PersonalBudget::changePassword()
