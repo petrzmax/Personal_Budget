@@ -59,12 +59,40 @@ void UserManager::registerUser()
 
 void UserManager::loginUser()
 {
+    string login;
 
+    cout << "Podaj login: ";
+    login = AuxiliaryMethods::getLine();
+
+    vector<User>::iterator itr = users.begin();
+
+    while(itr != users.end())
+    {
+        if(itr->getLogin() == login)
+        {
+            cout << "Podaj haslo: ";
+            if(itr->getPassword() == AuxiliaryMethods::getLine())
+            {
+                loggedUserId = itr->getUserId();
+                AuxiliaryMethods::timedMessage("Logowanie zakonczone sukcesem!");
+                return;
+            }
+            else
+            {
+                AuxiliaryMethods::timedMessage("Haslo niepoprawne!");
+                return;
+            }
+        }
+
+        ++itr;
+    }
+    loggedUserId = 0;
+    AuxiliaryMethods::timedMessage("Nie ma uzytkownika z takim loginem.");
 }
 
 void UserManager::logoutUser()
 {
-
+    loggedUserId = 0;
 }
 
 void UserManager::changePassword()
@@ -74,5 +102,8 @@ void UserManager::changePassword()
 
 bool UserManager::isUserLoggedIn()
 {
-
+    if(loggedUserId > 0)
+        return true;
+    else
+        return false;
 }
