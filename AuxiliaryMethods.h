@@ -7,12 +7,26 @@
 #include <vector>
 #include <time.h>
 
+// const values for static methods
+#define UNIX_YEAR_OFFSET 1900
+
+#define MINIMUM_ALLOWED_YEAR 2000
+
+#define MINIMUM_ALLOWED_MONTH 1
+#define MAXIMUM_ALLOWED_MONTH 12
+
+#define MINIMUM_ALLOWED_DAY 1
+#define MAXIMUM_ALLOWED_DAY 31
+
+#define FEBRUARY_DAYS_NUMBER 28
+
 using namespace std;
 
 class AuxiliaryMethods
 {
     static int getNumberOfDaysInMonth(int monthNumber, int year);
     static bool isCharInDate(string stringDate);
+    static bool isYearLeap(int year);
 
 public:
     AuxiliaryMethods();
@@ -29,7 +43,5 @@ public:
     static string unixTimeToStringDate(time_t unixTime);
     static time_t stringDateToUnixTime(string stringDate);
     static bool isDateCorrect(string stringDate);
-    static bool isYearLeap(int year);
-
 };
 #endif // AUXILIARYMETHODS_H

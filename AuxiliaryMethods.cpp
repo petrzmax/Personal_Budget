@@ -2,15 +2,17 @@
 
 int AuxiliaryMethods::getNumberOfDaysInMonth(int monthNumber, int year)
 {
-    int februaryDaysNumber = 28;
+    int februaryDaysNumber = 0;
 
     if(isYearLeap(year))
-        februaryDaysNumber = 29;
+        februaryDaysNumber = FEBRUARY_DAYS_NUMBER + 1;
+    else
+        februaryDaysNumber = FEBRUARY_DAYS_NUMBER;
 
     const vector<int> DAYS_IN_MONTHS = {31, februaryDaysNumber, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 
-    if(monthNumber < 1 || monthNumber > 12)
+    if(monthNumber < MINIMUM_ALLOWED_MONTH || monthNumber > MAXIMUM_ALLOWED_MONTH)
         return 0;
     else
         return DAYS_IN_MONTHS[monthNumber-1];
@@ -25,6 +27,14 @@ bool AuxiliaryMethods::isCharInDate(string stringDate)
             return true;
 
     return false;
+}
+
+bool AuxiliaryMethods::isYearLeap(int year)
+{
+    if((year%4 == 0 && year%100 != 0) || year%400 == 0)
+        return true;
+    else
+        return false;
 }
 
 string AuxiliaryMethods::getLine()
@@ -105,7 +115,7 @@ string AuxiliaryMethods::unixTimeToStringDate(time_t unixTime)
 
     struct tm *localTime = localtime(&unixTime);
 
-    date += to_string(1900 + localTime->tm_year);
+    date += to_string(UNIX_YEAR_OFFSET + localTime->tm_year);
     date += "-" + to_string(1 + localTime->tm_mon);
     date += "-" + to_string(localTime->tm_mday);
 
@@ -128,51 +138,42 @@ bool AuxiliaryMethods::isDateCorrect(string stringDate)
     int inputYear = 0, inputMonth = 0, inputDay = 0;
     int currentYear = 0, currentMonth = 0;
 
-
     string input;
     time_t currentTime = getCurrentUnixTime();
 
     struct tm *localTime = localtime(&currentTime);
 
-    currentYear = 1900 + localTime->tm_year;
+    currentYear = UNIX_YEAR_OFFSET + localTime->tm_year;
     currentMonth = 1 + localTime->tm_mon;
 
     istringstream stringStream(stringDate);
 
     getline(stringStream, input, '-');
-    inputYear = atoi(input.c_str());
+    inputYear = stringToInt(input);
 
     getline(stringStream, input, '-');
-    inputMonth = atoi(input.c_str());
+    inputMonth = stringToInt(input);
 
     getline(stringStream, input);
-    inputDay = atoi(input.c_str());
+    inputDay = stringToInt(input);
 
     if(isCharInDate(stringDate))
         return false;
 
-    if(inputYear < 2000 || inputYear > currentYear)
+    if(inputYear < MINIMUM_ALLOWED_YEAR || inputYear > currentYear)
         return false;
 
-    if(inputMonth < 1 || inputMonth > 12)
+    if(inputMonth < MINIMUM_ALLOWED_MONTH || inputMonth > MAXIMUM_ALLOWED_MONTH)
         return false;
 
     if(inputYear == currentYear && inputMonth > currentMonth)
         return false;
 
-    if(inputDay < 1 || inputDay > 31)
+    if(inputDay < MINIMUM_ALLOWED_DAY || inputDay > MAXIMUM_ALLOWED_DAY)
         return false;
 
     if(inputDay > getNumberOfDaysInMonth(inputMonth, inputYear))
         return false;
 
     return true;
-}
-
-bool AuxiliaryMethods::isYearLeap(int year)
-{
-    if((year%4 == 0 && year%100 != 0) || year%400 == 0)
-        return true;
-    else
-        return false;
 }
