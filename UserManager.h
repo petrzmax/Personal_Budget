@@ -20,6 +20,7 @@ public:
 
     UserManager(string usersFileName) : userFile(usersFileName)
     {
+        loggedUserId = 0;
         users = userFile.loadUsersFromFile();
     }
 
