@@ -87,5 +87,11 @@ char PersonalBudget::selectOptionFromMainMenu()
 
 char PersonalBudget::selectOptionFromUserMenu()
 {
+    system("cls");
+    cout << "-----Budzet Osobisty-----\n"
+         << "1. Logowanie\n"
+         << "2. Rejestracja\n"
+         << "3. Koniec programu\n";
 
+    return AuxiliaryMethods::getChar();
 }
