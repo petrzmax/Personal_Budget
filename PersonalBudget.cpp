@@ -40,6 +40,11 @@ void PersonalBudget::logoutUser()
     userManager.logoutUser();
 }
 
+bool PersonalBudget::isUserLoggedIn()
+{
+    return userManager.isUserLoggedIn();
+}
+
 void PersonalBudget::addIncome()
 {
 

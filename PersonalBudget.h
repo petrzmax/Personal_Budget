@@ -29,6 +29,7 @@ public:
     void loginUser();
     void changePassword();
     void logoutUser();
+    bool isUserLoggedIn();
 
     void addIncome();
     void addExpense();
