@@ -32,7 +32,7 @@ void PersonalBudget::loginUser()
 
 void PersonalBudget::changePassword()
 {
-
+    userManager.changePassword();
 }
 
 void PersonalBudget::logoutUser()
