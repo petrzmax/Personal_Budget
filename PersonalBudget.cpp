@@ -39,6 +39,8 @@ void PersonalBudget::changePassword()
 void PersonalBudget::logoutUser()
 {
     userManager.logoutUser();
+    delete incomeManager;
+    incomeManager = NULL;
 }
 
 bool PersonalBudget::isUserLoggedIn()
