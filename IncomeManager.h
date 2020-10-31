@@ -19,7 +19,10 @@ class IncomeManager
 public:
     IncomeManager(string fileName, int loggedUserId)
         : LOGGED_USER_ID(loggedUserId),
-          incomeFile(fileName) {};
+          incomeFile(fileName)
+    {
+        incomes = incomeFile.loadIncomesFromFile();
+    }
 
     void  addIncome();
 
