@@ -31,6 +31,8 @@ public:
 
     bool isUserLoggedIn();
 
+    int getLoggedUserId();
+
 };
 
 #endif // USERMANAGER_H

@@ -28,6 +28,7 @@ void PersonalBudget::registerUser()
 void PersonalBudget::loginUser()
 {
     userManager.loginUser();
+    incomeManager = new IncomeManager(INCOMES_FILE_NAME, userManager.getLoggedUserId());
 }
 
 void PersonalBudget::changePassword()
@@ -38,6 +39,8 @@ void PersonalBudget::changePassword()
 void PersonalBudget::logoutUser()
 {
     userManager.logoutUser();
+    delete incomeManager;
+    incomeManager = NULL;
 }
 
 bool PersonalBudget::isUserLoggedIn()
@@ -47,7 +50,7 @@ bool PersonalBudget::isUserLoggedIn()
 
 void PersonalBudget::addIncome()
 {
-
+    incomeManager->addIncome();
 }
 
 void PersonalBudget::addExpense()

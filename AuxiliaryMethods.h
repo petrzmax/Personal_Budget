@@ -36,6 +36,8 @@ public:
     static string getLine();
     static char getChar();
     static int getInteger();
+    static float getFloat();
+
     static string floatToString(float floatNumber);
     static float stringToFloat(string floatNumber);
     static int stringToInt(string intNumber);

@@ -80,6 +80,23 @@ int AuxiliaryMethods::getInteger()
     return number;
 }
 
+float AuxiliaryMethods::getFloat()
+{
+    string input = "";
+    float number = 0;
+
+    while (true)
+    {
+        getline(cin, input);
+
+        stringstream myStream(AuxiliaryMethods::commaToDotInString(input));
+        if (myStream >> number)
+            break;
+        cout << "To nie jest liczba. Wpisz ponownie. " << endl;
+    }
+    return number;
+}
+
 string AuxiliaryMethods::floatToString(float floatNumber)
 {
     return to_string(floatNumber);
