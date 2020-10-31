@@ -28,6 +28,7 @@ void PersonalBudget::registerUser()
 void PersonalBudget::loginUser()
 {
     userManager.loginUser();
+    incomeManager = new IncomeManager(INCOMES_FILE_NAME, userManager.getLoggedUserId());
 }
 
 void PersonalBudget::changePassword()
