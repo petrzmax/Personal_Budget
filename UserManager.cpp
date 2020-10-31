@@ -97,7 +97,24 @@ void UserManager::logoutUser()
 
 void UserManager::changePassword()
 {
+    system("cls");
 
+    vector<User>::iterator itr = users.begin();
+
+    while(itr != users.end())
+    {
+        if(itr->getUserId() == loggedUserId)
+        {
+            cout << "Podaj nowe haslo: ";
+            itr->setPassword(AuxiliaryMethods::getLine());
+
+            userFile.updateUserPassword(*itr);
+
+            AuxiliaryMethods::timedMessage("Haslo zmienione pomyslnie!");
+            return;
+        }
+        ++itr;
+    }
 }
 
 bool UserManager::isUserLoggedIn()
