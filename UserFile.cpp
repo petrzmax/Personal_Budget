@@ -72,3 +72,31 @@ void UserFile::appendUserToFile(User user)
 
     xml.Save(getFileName());
 }
+
+void UserFile::updateUserPassword(User user)
+{
+    if(xml.Load(getFileName()))
+    {
+        xml.FindElem(); //Sets position to "Users" element
+        xml.IntoElem(); //Make Users element current parent position
+
+        while(xml.FindElem("User"))
+        {
+            xml.FindChildElem("userId");
+            if(AuxiliaryMethods::stringToInt(xml.GetChildData()) == user.getUserId())
+            {
+                //User found
+                xml.FindChildElem("password");
+                xml.SetChildData(user.getPassword());
+                xml.Save(getFileName());
+
+                break;
+            }
+        }
+        AuxiliaryMethods::timedMessage("BLAD! W pliku nie ma takiego uzytkownika!");
+    }
+    else
+    {
+        AuxiliaryMethods::timedMessage("Nie udalo sie zaladowac pliku z uzytkownikami!");
+    }
+}

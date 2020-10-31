@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <vector>
+#include "AuxiliaryMethods.h"
 #include "XmlFile.h"
 #include "User.h"
 
@@ -17,6 +18,7 @@ public:
 
     vector<User> loadUsersFromFile();
     void appendUserToFile(User user);
+    void updateUserPassword(User user);
 
 };
 #endif // USERFILE_H
