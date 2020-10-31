@@ -1,6 +1,7 @@
 #ifndef INCOMEMANAGER_H
 #define INCOMEMANAGER_H
 
+#include "AuxiliaryMethods.h"
 #include "Income.h"
 #include "IncomeFile.h"
 
