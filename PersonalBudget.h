@@ -2,13 +2,14 @@
 #define PERSONALBUDGET_H
 
 #include "UserManager.h"
+#include "IncomeManager.h"
 
 using namespace std;
 
 class PersonalBudget
 {
     UserManager userManager;
-    //IncomeManager *incomeManager;
+    IncomeManager *incomeManager;
     //ExpenseManager *expenseManager;
     const string INCOMES_FILE_NAME;
     const string EXPENSES_FILE_NAME;
