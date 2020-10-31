@@ -15,5 +15,9 @@ int IncomeManager::getNewIncomeId()
 
 void  IncomeManager::addIncome()
 {
+    Income newIncome = getNewIncomeData();
+    incomes.push_back(newIncome);
 
+    incomeFile.appendIncomeToFile(newIncome);
+    AuxiliaryMethods::timedMessage("Przychod dodany pomyslnie!");
 }
