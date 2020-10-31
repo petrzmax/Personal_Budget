@@ -10,12 +10,16 @@ class IncomeManager
 {
     const int LOGGED_USER_ID;
     vector <Income> incomes;
+    IncomeFile incomeFile;
 
     Income getNewIncomeData();
     int getNewIncomeId();
 
 public:
-    IncomeManager();
+    IncomeManager(string fileName, int loggedUserId)
+        : LOGGED_USER_ID(loggedUserId),
+          incomeFile(fileName) {};
+
     void  addIncome();
 
 };
