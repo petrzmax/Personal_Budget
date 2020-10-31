@@ -89,7 +89,7 @@ float AuxiliaryMethods::getFloat()
     {
         getline(cin, input);
 
-        stringstream myStream(input);
+        stringstream myStream(AuxiliaryMethods::commaToDotInString(input));
         if (myStream >> number)
             break;
         cout << "To nie jest liczba. Wpisz ponownie. " << endl;
