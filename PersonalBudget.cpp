@@ -50,7 +50,7 @@ bool PersonalBudget::isUserLoggedIn()
 
 void PersonalBudget::addIncome()
 {
-
+    incomeManager->addIncome();
 }
 
 void PersonalBudget::addExpense()
