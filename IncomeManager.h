@@ -16,7 +16,6 @@ class IncomeManager
 
     Income getNewIncomeData();
     int getNewIncomeId();
-    time_t getCorrectDate();
 
 public:
     IncomeManager(string fileName, int loggedUserId)

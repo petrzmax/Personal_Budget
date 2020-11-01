@@ -21,7 +21,8 @@ Expense ExpenseManager::getNewExpenseData()
         }
         else if(selection == 'n')
         {
-            newExpense.setDate(getCorrectDate());
+            cout << "Podaj date wydatku w formacie rrrr-mm-dd: ";
+            newExpense.setDate(AuxiliaryMethods::getCorrectDate());
             break;
         }
         else
@@ -43,22 +44,6 @@ int ExpenseManager::getNewExpenseId()
         return 1;
     else
         return expenses.back().getExpenseId() + 1;
-}
-
-time_t ExpenseManager::getCorrectDate()
-{
-    string newDate;
-
-    cout << "Podaj date przychodu w formacie rrrr-mm-dd: ";
-    while(true)
-    {
-        newDate = AuxiliaryMethods::getLine();
-
-        if(AuxiliaryMethods::isDateCorrect(newDate))
-            return AuxiliaryMethods::stringDateToUnixTime(newDate);
-        else
-            cout << "Bledna data! Podaj poprawna date: ";
-    }
 }
 
 void  ExpenseManager::addExpense()

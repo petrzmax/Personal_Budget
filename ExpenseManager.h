@@ -16,7 +16,6 @@ class ExpenseManager
 
     Expense getNewExpenseData();
     int getNewExpenseId();
-    time_t getCorrectDate();
 
 public:
     ExpenseManager(string fileName, int loggedUserId)
