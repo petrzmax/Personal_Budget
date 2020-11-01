@@ -31,6 +31,7 @@ class AuxiliaryMethods
     static int getNumberOfDaysInMonth(int monthNumber, int year);
     static bool isCharInDate(string stringDate);
     static bool isYearLeap(int year);
+    static bool isDateCorrect(string stringDate);
 
 public:
     static string getLine();
@@ -47,6 +48,6 @@ public:
     static time_t getCurrentUnixTime();
     static string unixTimeToStringDate(time_t unixTime);
     static time_t stringDateToUnixTime(string stringDate);
-    static bool isDateCorrect(string stringDate);
+    static time_t getCorrectDate();
 };
 #endif // AUXILIARYMETHODS_H
