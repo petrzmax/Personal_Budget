@@ -3,6 +3,7 @@
 
 #include "UserManager.h"
 #include "IncomeManager.h"
+#include "ExpenseManager.h"
 
 using namespace std;
 
@@ -10,7 +11,7 @@ class PersonalBudget
 {
     UserManager userManager;
     IncomeManager *incomeManager;
-    //ExpenseManager *expenseManager;
+    ExpenseManager *expenseManager;
     const string INCOMES_FILE_NAME;
     const string EXPENSES_FILE_NAME;
 
