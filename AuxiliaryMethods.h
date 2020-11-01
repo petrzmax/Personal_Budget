@@ -48,5 +48,6 @@ public:
     static string unixTimeToStringDate(time_t unixTime);
     static time_t stringDateToUnixTime(string stringDate);
     static bool isDateCorrect(string stringDate);
+    static time_t getCorrectDate();
 };
 #endif // AUXILIARYMETHODS_H

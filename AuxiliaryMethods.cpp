@@ -200,3 +200,18 @@ bool AuxiliaryMethods::isDateCorrect(string stringDate)
 
     return true;
 }
+
+time_t AuxiliaryMethods::getCorrectDate()
+{
+    string newDate;
+
+    while(true)
+    {
+        newDate = getLine();
+
+        if(isDateCorrect(newDate))
+            return stringDateToUnixTime(newDate);
+        else
+            cout << "Bledna data! Podaj poprawna date: ";
+    }
+}
