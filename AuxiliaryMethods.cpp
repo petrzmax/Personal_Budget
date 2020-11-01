@@ -37,6 +37,51 @@ bool AuxiliaryMethods::isYearLeap(int year)
         return false;
 }
 
+bool AuxiliaryMethods::isDateCorrect(string stringDate)
+{
+    int inputYear = 0, inputMonth = 0, inputDay = 0;
+    int currentYear = 0, currentMonth = 0;
+
+    string input;
+    time_t currentTime = getCurrentUnixTime();
+
+    struct tm *localTime = localtime(&currentTime);
+
+    currentYear = UNIX_YEAR_OFFSET + localTime->tm_year;
+    currentMonth = 1 + localTime->tm_mon;
+
+    istringstream stringStream(stringDate);
+
+    getline(stringStream, input, '-');
+    inputYear = stringToInt(input);
+
+    getline(stringStream, input, '-');
+    inputMonth = stringToInt(input);
+
+    getline(stringStream, input);
+    inputDay = stringToInt(input);
+
+    if(isCharInDate(stringDate))
+        return false;
+
+    if(inputYear < MINIMUM_ALLOWED_YEAR || inputYear > currentYear)
+        return false;
+
+    if(inputMonth < MINIMUM_ALLOWED_MONTH || inputMonth > MAXIMUM_ALLOWED_MONTH)
+        return false;
+
+    if(inputYear == currentYear && inputMonth > currentMonth)
+        return false;
+
+    if(inputDay < MINIMUM_ALLOWED_DAY || inputDay > MAXIMUM_ALLOWED_DAY)
+        return false;
+
+    if(inputDay > getNumberOfDaysInMonth(inputMonth, inputYear))
+        return false;
+
+    return true;
+}
+
 string AuxiliaryMethods::getLine()
 {
     string temporaryLine = "";
@@ -154,51 +199,6 @@ time_t AuxiliaryMethods::stringDateToUnixTime(string stringDate)
     stringStream >> get_time(&timeStruct, "%Y-%m-%d");
 
     return mktime(&timeStruct);
-}
-
-bool AuxiliaryMethods::isDateCorrect(string stringDate)
-{
-    int inputYear = 0, inputMonth = 0, inputDay = 0;
-    int currentYear = 0, currentMonth = 0;
-
-    string input;
-    time_t currentTime = getCurrentUnixTime();
-
-    struct tm *localTime = localtime(&currentTime);
-
-    currentYear = UNIX_YEAR_OFFSET + localTime->tm_year;
-    currentMonth = 1 + localTime->tm_mon;
-
-    istringstream stringStream(stringDate);
-
-    getline(stringStream, input, '-');
-    inputYear = stringToInt(input);
-
-    getline(stringStream, input, '-');
-    inputMonth = stringToInt(input);
-
-    getline(stringStream, input);
-    inputDay = stringToInt(input);
-
-    if(isCharInDate(stringDate))
-        return false;
-
-    if(inputYear < MINIMUM_ALLOWED_YEAR || inputYear > currentYear)
-        return false;
-
-    if(inputMonth < MINIMUM_ALLOWED_MONTH || inputMonth > MAXIMUM_ALLOWED_MONTH)
-        return false;
-
-    if(inputYear == currentYear && inputMonth > currentMonth)
-        return false;
-
-    if(inputDay < MINIMUM_ALLOWED_DAY || inputDay > MAXIMUM_ALLOWED_DAY)
-        return false;
-
-    if(inputDay > getNumberOfDaysInMonth(inputMonth, inputYear))
-        return false;
-
-    return true;
 }
 
 time_t AuxiliaryMethods::getCorrectDate()
