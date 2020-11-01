@@ -46,22 +46,6 @@ int ExpenseManager::getNewExpenseId()
         return expenses.back().getExpenseId() + 1;
 }
 
-time_t ExpenseManager::getCorrectDate()
-{
-    string newDate;
-
-    cout << "Podaj date przychodu w formacie rrrr-mm-dd: ";
-    while(true)
-    {
-        newDate = AuxiliaryMethods::getLine();
-
-        if(AuxiliaryMethods::isDateCorrect(newDate))
-            return AuxiliaryMethods::stringDateToUnixTime(newDate);
-        else
-            cout << "Bledna data! Podaj poprawna date: ";
-    }
-}
-
 void  ExpenseManager::addExpense()
 {
     Expense newExpense = getNewExpenseData();
