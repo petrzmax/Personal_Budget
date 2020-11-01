@@ -21,7 +21,8 @@ Income IncomeManager::getNewIncomeData()
         }
         else if(selection == 'n')
         {
-            newIncome.setDate(getCorrectDate());
+            cout << "Podaj date przychodu w formacie rrrr-mm-dd: ";
+            newIncome.setDate(AuxiliaryMethods::getCorrectDate());
             break;
         }
         else

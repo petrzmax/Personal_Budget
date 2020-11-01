@@ -21,7 +21,8 @@ Expense ExpenseManager::getNewExpenseData()
         }
         else if(selection == 'n')
         {
-            newExpense.setDate(getCorrectDate());
+            cout << "Podaj date wydatku w formacie rrrr-mm-dd: ";
+            newExpense.setDate(AuxiliaryMethods::getCorrectDate());
             break;
         }
         else
