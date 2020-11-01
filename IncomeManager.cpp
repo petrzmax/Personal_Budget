@@ -69,3 +69,18 @@ void  IncomeManager::addIncome()
     incomeFile.appendIncomeToFile(newIncome);
     AuxiliaryMethods::timedMessage("Przychod dodany pomyslnie!");
 }
+
+/*
+1. Znajdz Date w Unix, z polnocy ostatniego dnia poprzedniego miesiaca.
+2. Znajdz Date w Unix, z polnocy pierwszego dnia ostatniego miesiaca.
+3. Przejdz po wektorze przychodow, i do nowego wektora przepisz te,
+    ktorych czas unixowy zawiera sie pomiedzy czasami z pkt. 1 i 2.
+4. Posegreguj powstaly wektor wedlug daty ich dodania, na gorze najstarsze.
+5. Przejdz po powstalym wektorze, i wypisz dane na ekran.
+6. Policz sume przychodow i zwroc ja.
+*/
+
+float IncomeManager::displayLastMonthIncomes()
+{
+
+}

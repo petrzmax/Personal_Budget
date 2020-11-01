@@ -27,6 +27,7 @@ public:
     }
 
     void  addIncome();
+    float displayLastMonthIncomes();
 
 };
 
