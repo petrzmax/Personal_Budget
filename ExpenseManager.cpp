@@ -8,6 +8,8 @@ Expense ExpenseManager::getNewExpenseData()
     newExpense.setExpenseId(getNewExpenseId());
     newExpense.setUserId(LOGGED_USER_ID);
 
+    system("cls");
+
     cout << "Czy wydatek dotyczy dnia dzisiejszego? t - Tak, n - nie" << endl;
 
     while(true)
