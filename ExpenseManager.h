@@ -2,6 +2,7 @@
 #define EXPENSEMANAGER_H
 
 #include <conio.h>
+#include <algorithm>
 #include "AuxiliaryMethods.h"
 #include "Expense.h"
 #include "ExpenseFile.h"
