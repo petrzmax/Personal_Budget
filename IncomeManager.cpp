@@ -54,6 +54,15 @@ void IncomeManager::displayIncomeHeader()
          << left << setw(30)<< "Przychod" << endl;
 }
 
+void IncomeManager::displayIncomesVector(vector<Income> &incomes)
+{
+    for(int i = 0; i < incomes.size(); i++)
+        cout << left << setw(4) << incomes[i].getIncomeId()
+             << left << setw(35)<< incomes[i].getItem()
+             << left << setw(15)<< AuxiliaryMethods::unixTimeToStringDate(incomes[i].getDate())
+             << left << setw(30)<< incomes[i].getAmount() << endl;
+}
+
 void  IncomeManager::addIncome()
 {
     Income newIncome = getNewIncomeData();
