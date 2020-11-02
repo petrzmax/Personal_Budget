@@ -130,3 +130,24 @@ float IncomeManager::displayLastMonthIncomes()
 
     return getTotalIncomesValueInVector(lastMonthIncomes);
 }
+
+float IncomeManager::displayChosenPeriodIncomes(time_t beginPeriodUnixTime, time_t endPeriodUnixTime)
+{
+    vector<Income> lastMonthIncomes;
+
+    for(int i = 0; i < incomes.size(); i++)
+    {
+        if(incomes[i].getDate() > beginPeriodUnixTime &&
+                incomes[i].getDate() < endPeriodUnixTime)
+        {
+            lastMonthIncomes.push_back(incomes[i]);
+        }
+    }
+
+    sort(lastMonthIncomes.begin(), lastMonthIncomes.end(), greater <>());
+
+    displayIncomeHeader();
+    displayIncomesVector(lastMonthIncomes);
+
+    return getTotalIncomesValueInVector(lastMonthIncomes);
+}
