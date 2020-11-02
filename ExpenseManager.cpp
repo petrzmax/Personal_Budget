@@ -64,6 +64,15 @@ void ExpenseManager::displayExpensesVector(vector<Expense> &expenses)
 }
 
 float ExpenseManager::getTotalExpensesValueInVector(vector<Expense> &expenses)
+{
+    float totalExpense = 0;
+
+    for(int i = 0; i < expenses.size(); i++)
+        totalExpense += expenses[i].getAmount();
+
+    return totalExpense;
+}
+
 void  ExpenseManager::addExpense()
 {
     Expense newExpense = getNewExpenseData();
