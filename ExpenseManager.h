@@ -32,6 +32,7 @@ public:
     void  addExpense();
     float displayCurrentMonthExpenses();
     float displayLastMonthExpenses();
+    float displayChosenPeriodExpenses(time_t beginPeriodUnixTime, time_t endPeriodUnixTime);
 
 };
 
