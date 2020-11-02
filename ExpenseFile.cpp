@@ -26,10 +26,11 @@ Expense ExpenseFile::getExpenseData()
     return expense;
 }
 
-vector<Expense> ExpenseFile::loadExpensesFromFile()
+vector<Expense> ExpenseFile::loadExpensesFromFile(int loggedUserId)
 {
     if(xml.Load(getFileName()))
     {
+        Expense loadedExpense;
         vector<Expense> expenses;
 
         xml.FindElem(); //Sets position to "Expenses" element
@@ -37,7 +38,9 @@ vector<Expense> ExpenseFile::loadExpensesFromFile()
 
         while(xml.FindElem("Expense"))
         {
-            expenses.push_back(getExpenseData());
+            loadedExpense = getExpenseData();
+            if(loadedExpense.getUserId() == loggedUserId)
+                expenses.push_back(loadedExpense);
         }
         return expenses;
     }

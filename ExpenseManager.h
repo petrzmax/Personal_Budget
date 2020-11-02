@@ -26,7 +26,7 @@ public:
         : LOGGED_USER_ID(loggedUserId),
           expenseFile(fileName)
     {
-        expenses = expenseFile.loadExpensesFromFile();
+        expenses = expenseFile.loadExpensesFromFile(LOGGED_USER_ID);
     }
 
     void  addExpense();
