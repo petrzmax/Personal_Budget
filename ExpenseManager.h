@@ -18,6 +18,7 @@ class ExpenseManager
     Expense getNewExpenseData();
     int getNewExpenseId();
     void displayExpenseHeader();
+    void displayExpensesVector(vector<Expense> &expenses);
 
 public:
     ExpenseManager(string fileName, int loggedUserId)

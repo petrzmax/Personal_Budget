@@ -54,6 +54,16 @@ void ExpenseManager::displayExpenseHeader()
          << left << setw(30)<< "Wydatek" << endl;
 }
 
+void ExpenseManager::displayExpensesVector(vector<Expense> &expenses)
+{
+    for(int i = 0; i < expenses.size(); i++)
+        cout << left << setw(4) << expenses[i].getExpenseId()
+             << left << setw(35)<< expenses[i].getItem()
+             << left << setw(15)<< AuxiliaryMethods::unixTimeToStringDate(expenses[i].getDate())
+             << left << setw(30)<< setprecision(2) << expenses[i].getAmount() << endl;
+}
+
+float ExpenseManager::getTotalExpensesValueInVector(vector<Expense> &expenses)
 void  ExpenseManager::addExpense()
 {
     Expense newExpense = getNewExpenseData();
