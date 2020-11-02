@@ -46,6 +46,14 @@ int ExpenseManager::getNewExpenseId()
         return expenses.back().getExpenseId() + 1;
 }
 
+void ExpenseManager::displayExpenseHeader()
+{
+    cout << left << setw(4) << "id"
+         << left << setw(35)<< "Przedmiot"
+         << left << setw(15)<< "Data"
+         << left << setw(30)<< "Wydatek" << endl;
+}
+
 void  ExpenseManager::addExpense()
 {
     Expense newExpense = getNewExpenseData();

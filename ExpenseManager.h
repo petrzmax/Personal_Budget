@@ -17,6 +17,7 @@ class ExpenseManager
 
     Expense getNewExpenseData();
     int getNewExpenseId();
+    void displayExpenseHeader();
 
 public:
     ExpenseManager(string fileName, int loggedUserId)
