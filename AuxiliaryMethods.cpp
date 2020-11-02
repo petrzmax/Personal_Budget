@@ -243,3 +243,21 @@ time_t AuxiliaryMethods::getLastMonthFirstDayUnixTime()
     return stringDateToUnixTime(lastMonthFirstDayDate);
 }
 
+time_t AuxiliaryMethods::getLastMonthLastDayUnixTime()
+{
+    time_t currentTime = getCurrentUnixTime();
+    int currentYear, currentMonth;
+    string lastMonthLastDayDate;
+
+    struct tm *localTime = localtime(&currentTime);
+
+    currentYear = UNIX_YEAR_OFFSET + localTime->tm_year;
+    currentMonth = 1 + localTime->tm_mon;
+
+
+    lastMonthLastDayDate += to_string(currentYear);
+    lastMonthLastDayDate += "-" + to_string(currentMonth);
+    lastMonthLastDayDate += "-01";
+
+    return stringDateToUnixTime(lastMonthLastDayDate);
+}
