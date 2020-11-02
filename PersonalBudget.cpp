@@ -1,25 +1,5 @@
 #include "PersonalBudget.h"
 
-float PersonalBudget::getTotalExpenses()
-{
-
-}
-
-float PersonalBudget::getTotalIncomes()
-{
-
-}
-
-float PersonalBudget::getPeriodExpenses()
-{
-
-}
-
-float PersonalBudget::getPeriodIncomes()
-{
-
-}
-
 void PersonalBudget::registerUser()
 {
     userManager.registerUser();
