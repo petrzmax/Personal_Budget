@@ -26,10 +26,11 @@ Income IncomeFile::getIncomeData()
     return income;
 }
 
-vector<Income> IncomeFile::loadIncomesFromFile()
+vector<Income> IncomeFile::loadIncomesFromFile(int loggedUserId)
 {
     if(xml.Load(getFileName()))
     {
+        Income loadedIncome;
         vector<Income> incomes;
 
         xml.FindElem(); //Sets position to "Incomes" element
@@ -37,7 +38,9 @@ vector<Income> IncomeFile::loadIncomesFromFile()
 
         while(xml.FindElem("Income"))
         {
-            incomes.push_back(getIncomeData());
+            loadedIncome = getIncomeData();
+            if(loadedIncome.getUserId() == loggedUserId)
+                incomes.push_back(loadedIncome);
         }
         return incomes;
     }

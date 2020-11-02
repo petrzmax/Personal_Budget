@@ -15,7 +15,7 @@ class IncomeFile : public XmlFile
 public:
     IncomeFile(string fileName) : XmlFile(fileName) {};
 
-    vector<Income> loadIncomesFromFile();
+    vector<Income> loadIncomesFromFile(int loggedUserId);
     void appendIncomeToFile(Income income);
 
 };

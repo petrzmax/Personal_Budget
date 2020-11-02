@@ -15,7 +15,7 @@ class ExpenseFile : public XmlFile
 public:
     ExpenseFile(string fileName) : XmlFile(fileName) {};
 
-    vector<Expense> loadExpensesFromFile();
+    vector<Expense> loadExpensesFromFile(int loggedUserId);
     void appendExpenseToFile(Expense expense);
 
 };
