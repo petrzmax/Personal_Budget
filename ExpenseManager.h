@@ -11,7 +11,7 @@ using namespace std;
 class ExpenseManager
 {
     const int LOGGED_USER_ID;
-    vector <Expense> expenses;
+    vector<Expense> expenses;
     ExpenseFile expenseFile;
 
     Expense getNewExpenseData();
