@@ -60,7 +60,7 @@ void IncomeManager::displayIncomesVector(vector<Income> &incomes)
         cout << left << setw(4) << incomes[i].getIncomeId()
              << left << setw(35)<< incomes[i].getItem()
              << left << setw(15)<< AuxiliaryMethods::unixTimeToStringDate(incomes[i].getDate())
-             << left << setw(30)<< incomes[i].getAmount() << endl;
+             << left << setw(30)<< setprecision(2) << incomes[i].getAmount() << endl;
 }
 
 float IncomeManager::getTotalIncomesValueInVector(vector<Income> &incomes)
