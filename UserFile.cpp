@@ -90,7 +90,7 @@ void UserFile::updateUserPassword(User user)
                 xml.SetChildData(user.getPassword());
                 xml.Save(getFileName());
 
-                break;
+                return;
             }
         }
         AuxiliaryMethods::timedMessage("BLAD! W pliku nie ma takiego uzytkownika!");
