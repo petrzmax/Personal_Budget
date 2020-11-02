@@ -2,6 +2,7 @@
 #define INCOMEMANAGER_H
 
 #include <conio.h>
+#include <algorithm>
 #include "AuxiliaryMethods.h"
 #include "Income.h"
 #include "IncomeFile.h"
