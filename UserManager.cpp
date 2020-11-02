@@ -6,6 +6,8 @@ User UserManager::getNewUserData()
 
     newUser.setUserId(getNewUserId());
 
+    system("cls");
+
     cout << "Podaj imie: ";
     newUser.setName(AuxiliaryMethods::getLine());
 
