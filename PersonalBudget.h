@@ -15,11 +15,6 @@ class PersonalBudget
     const string INCOMES_FILE_NAME;
     const string EXPENSES_FILE_NAME;
 
-    float getTotalExpenses();
-    float getTotalIncomes();
-    float getPeriodExpenses();
-    float getPeriodIncomes();
-
 public:
 
     PersonalBudget(string usersFileName, string incomesFileName, string expensesFileName)
