@@ -48,6 +48,7 @@ int ExpenseManager::getNewExpenseId()
 
 void ExpenseManager::displayExpenseHeader()
 {
+    cout << "------------------------Lista wydatkow------------------------" << endl;
     cout << left << setw(4) << "id"
          << left << setw(35)<< "Przedmiot"
          << left << setw(15)<< "Data"
