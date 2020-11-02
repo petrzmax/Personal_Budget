@@ -83,6 +83,30 @@ void  ExpenseManager::addExpense()
     AuxiliaryMethods::timedMessage("Wydatek dodany pomyslnie!");
 }
 
+float ExpenseManager::displayCurrentMonthExpenses()
+{
+    time_t currentTime = AuxiliaryMethods::getCurrentUnixTime();
+    time_t currentMonthfirstDayUnixTime = AuxiliaryMethods::getLastMonthLastDayUnixTime();
+
+    vector<Expense> currentMonthExpenses;
+
+    for(int i = 0; i < expenses.size(); i++)
+    {
+        if(expenses[i].getDate() > currentMonthfirstDayUnixTime &&
+                expenses[i].getDate() < currentTime)
+        {
+            currentMonthExpenses.push_back(expenses[i]);
+        }
+    }
+
+    sort(currentMonthExpenses.begin(), currentMonthExpenses.end(), greater <>());
+
+    displayExpenseHeader();
+    displayExpensesVector(currentMonthExpenses);
+
+    return getTotalExpensesValueInVector(currentMonthExpenses);
+}
+
 float ExpenseManager::displayLastMonthExpenses()
 {
     time_t lastMonthFirstDayUnixTime = AuxiliaryMethods::getLastMonthFirstDayUnixTime();

@@ -83,6 +83,30 @@ void  IncomeManager::addIncome()
     AuxiliaryMethods::timedMessage("Przychod dodany pomyslnie!");
 }
 
+float IncomeManager::displayCurrentMonthIncomes()
+{
+    time_t currentTime = AuxiliaryMethods::getCurrentUnixTime();
+    time_t currentMonthfirstDayUnixTime = AuxiliaryMethods::getLastMonthLastDayUnixTime();
+
+    vector<Income> currentMonthIncomes;
+
+    for(int i = 0; i < incomes.size(); i++)
+    {
+        if(incomes[i].getDate() > currentMonthfirstDayUnixTime &&
+                incomes[i].getDate() < currentTime)
+        {
+            currentMonthIncomes.push_back(incomes[i]);
+        }
+    }
+
+    sort(currentMonthIncomes.begin(), currentMonthIncomes.end(), greater <>());
+
+    displayIncomeHeader();
+    displayIncomesVector(currentMonthIncomes);
+
+    return getTotalIncomesValueInVector(currentMonthIncomes);
+}
+
 float IncomeManager::displayLastMonthIncomes()
 {
     time_t lastMonthFirstDayUnixTime = AuxiliaryMethods::getLastMonthFirstDayUnixTime();

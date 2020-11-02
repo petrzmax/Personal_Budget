@@ -30,6 +30,7 @@ public:
     }
 
     void  addExpense();
+    float displayCurrentMonthExpenses();
     float displayLastMonthExpenses();
 
 };
