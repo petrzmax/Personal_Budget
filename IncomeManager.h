@@ -18,6 +18,7 @@ class IncomeManager
     int getNewIncomeId();
     void displayIncomeHeader();
     void displayIncomesVector(vector<Income> &incomes);
+    float getTotalIncomesValueInVector(vector<Income> &incomes);
 
 public:
     IncomeManager(string fileName, int loggedUserId)

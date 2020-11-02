@@ -63,6 +63,16 @@ void IncomeManager::displayIncomesVector(vector<Income> &incomes)
              << left << setw(30)<< incomes[i].getAmount() << endl;
 }
 
+float IncomeManager::getTotalIncomesValueInVector(vector<Income> &incomes)
+{
+    float totalIncome = 0;
+
+    for(int i = 0; i < incomes.size(); i++)
+        totalIncome += incomes[i].getAmount();
+
+    return totalIncome;
+}
+
 void  IncomeManager::addIncome()
 {
     Income newIncome = getNewIncomeData();
