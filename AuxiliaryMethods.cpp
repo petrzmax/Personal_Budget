@@ -215,3 +215,31 @@ time_t AuxiliaryMethods::getCorrectDate()
             cout << "Bledna data! Podaj poprawna date: ";
     }
 }
+
+time_t AuxiliaryMethods::getLastMonthFirstDayUnixTime()
+{
+    time_t currentTime = getCurrentUnixTime();
+    int currentYear, currentMonth;
+    string lastMonthFirstDayDate;
+
+    struct tm *localTime = localtime(&currentTime);
+
+    currentYear = UNIX_YEAR_OFFSET + localTime->tm_year;
+    currentMonth = 1 + localTime->tm_mon;
+
+    if(currentMonth == 1)
+    {
+        lastMonthFirstDayDate += to_string(currentYear-1);
+        lastMonthFirstDayDate += "-12";
+        lastMonthFirstDayDate += "-01";
+    }
+    else
+    {
+
+        lastMonthFirstDayDate += to_string(currentYear);
+        lastMonthFirstDayDate += "-" + to_string(currentMonth - 1);
+        lastMonthFirstDayDate += "-01";
+    }
+    return stringDateToUnixTime(lastMonthFirstDayDate);
+}
+

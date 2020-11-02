@@ -49,5 +49,6 @@ public:
     static string unixTimeToStringDate(time_t unixTime);
     static time_t stringDateToUnixTime(string stringDate);
     static time_t getCorrectDate();
+    static time_t getLastMonthFirstDayUnixTime();
 };
 #endif // AUXILIARYMETHODS_H
