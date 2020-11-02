@@ -21,6 +21,11 @@ public:
         this->amount = amount;
     }
 
+    bool operator > (const  Finance & other)
+    {
+        return amount > other.amount;
+    }
+
     void setUserId(int userId);
     void setDate(time_t date);
     void setItem(string item);
