@@ -8,6 +8,8 @@ Income IncomeManager::getNewIncomeData()
     newIncome.setIncomeId(getNewIncomeId());
     newIncome.setUserId(LOGGED_USER_ID);
 
+    system("cls");
+
     cout << "Czy przychod dotyczy dnia dzisiejszego? t - Tak, n - nie" << endl;
 
     while(true)
