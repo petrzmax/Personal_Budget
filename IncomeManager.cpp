@@ -46,6 +46,14 @@ int IncomeManager::getNewIncomeId()
         return incomes.back().getIncomeId() + 1;
 }
 
+void IncomeManager::displayIncomeHeader()
+{
+    cout << left << setw(4) << "id"
+         << left << setw(35)<< "Przedmiot"
+         << left << setw(15)<< "Data"
+         << left << setw(30)<< "Przychod" << endl;
+}
+
 void  IncomeManager::addIncome()
 {
     Income newIncome = getNewIncomeData();

@@ -16,6 +16,7 @@ class IncomeManager
 
     Income getNewIncomeData();
     int getNewIncomeId();
+    void displayIncomeHeader();
 
 public:
     IncomeManager(string fileName, int loggedUserId)
