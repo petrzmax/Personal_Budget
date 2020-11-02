@@ -2,6 +2,7 @@
 #define INCOMEMANAGER_H
 
 #include <conio.h>
+#include <algorithm>
 #include "AuxiliaryMethods.h"
 #include "Income.h"
 #include "IncomeFile.h"
@@ -11,11 +12,14 @@ using namespace std;
 class IncomeManager
 {
     const int LOGGED_USER_ID;
-    vector <Income> incomes;
+    vector<Income> incomes;
     IncomeFile incomeFile;
 
     Income getNewIncomeData();
     int getNewIncomeId();
+    void displayIncomeHeader();
+    void displayIncomesVector(vector<Income> &incomes);
+    float getTotalIncomesValueInVector(vector<Income> &incomes);
 
 public:
     IncomeManager(string fileName, int loggedUserId)
@@ -26,6 +30,7 @@ public:
     }
 
     void  addIncome();
+    float displayLastMonthIncomes();
 
 };
 

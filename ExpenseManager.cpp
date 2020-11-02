@@ -46,6 +46,34 @@ int ExpenseManager::getNewExpenseId()
         return expenses.back().getExpenseId() + 1;
 }
 
+void ExpenseManager::displayExpenseHeader()
+{
+    cout << "------------------------Lista wydatkow------------------------" << endl;
+    cout << left << setw(4) << "id"
+         << left << setw(35)<< "Przedmiot"
+         << left << setw(15)<< "Data"
+         << left << setw(30)<< "Wydatek" << endl;
+}
+
+void ExpenseManager::displayExpensesVector(vector<Expense> &expenses)
+{
+    for(int i = 0; i < expenses.size(); i++)
+        cout << left << setw(4) << expenses[i].getExpenseId()
+             << left << setw(35)<< expenses[i].getItem()
+             << left << setw(15)<< AuxiliaryMethods::unixTimeToStringDate(expenses[i].getDate())
+             << left << setw(30)<< setprecision(2) << expenses[i].getAmount() << endl;
+}
+
+float ExpenseManager::getTotalExpensesValueInVector(vector<Expense> &expenses)
+{
+    float totalExpense = 0;
+
+    for(int i = 0; i < expenses.size(); i++)
+        totalExpense += expenses[i].getAmount();
+
+    return totalExpense;
+}
+
 void  ExpenseManager::addExpense()
 {
     Expense newExpense = getNewExpenseData();
@@ -53,4 +81,28 @@ void  ExpenseManager::addExpense()
 
     expenseFile.appendExpenseToFile(newExpense);
     AuxiliaryMethods::timedMessage("Wydatek dodany pomyslnie!");
+}
+
+float ExpenseManager::displayLastMonthExpenses()
+{
+    time_t lastMonthFirstDayUnixTime = AuxiliaryMethods::getLastMonthFirstDayUnixTime();
+    time_t lastMonthLastDayUnixTime = AuxiliaryMethods::getLastMonthLastDayUnixTime();
+
+    vector<Expense> lastMonthExpenses;
+
+    for(int i = 0; i < expenses.size(); i++)
+    {
+        if(expenses[i].getDate() > lastMonthFirstDayUnixTime &&
+                expenses[i].getDate() < lastMonthLastDayUnixTime)
+        {
+            lastMonthExpenses.push_back(expenses[i]);
+        }
+    }
+
+    sort(lastMonthExpenses.begin(), lastMonthExpenses.end(), greater <>());
+
+    displayExpenseHeader();
+    displayExpensesVector(lastMonthExpenses);
+
+    return getTotalExpensesValueInVector(lastMonthExpenses);
 }

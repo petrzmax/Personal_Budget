@@ -46,6 +46,34 @@ int IncomeManager::getNewIncomeId()
         return incomes.back().getIncomeId() + 1;
 }
 
+void IncomeManager::displayIncomeHeader()
+{
+    cout << "-----------------------Lista przychodow-----------------------" << endl;
+    cout << left << setw(4) << "id"
+         << left << setw(35)<< "Przedmiot"
+         << left << setw(15)<< "Data"
+         << left << setw(30)<< "Przychod" << endl;
+}
+
+void IncomeManager::displayIncomesVector(vector<Income> &incomes)
+{
+    for(int i = 0; i < incomes.size(); i++)
+        cout << left << setw(4) << incomes[i].getIncomeId()
+             << left << setw(35)<< incomes[i].getItem()
+             << left << setw(15)<< AuxiliaryMethods::unixTimeToStringDate(incomes[i].getDate())
+             << left << setw(30)<< setprecision(2) << incomes[i].getAmount() << endl;
+}
+
+float IncomeManager::getTotalIncomesValueInVector(vector<Income> &incomes)
+{
+    float totalIncome = 0;
+
+    for(int i = 0; i < incomes.size(); i++)
+        totalIncome += incomes[i].getAmount();
+
+    return totalIncome;
+}
+
 void  IncomeManager::addIncome()
 {
     Income newIncome = getNewIncomeData();
@@ -53,4 +81,28 @@ void  IncomeManager::addIncome()
 
     incomeFile.appendIncomeToFile(newIncome);
     AuxiliaryMethods::timedMessage("Przychod dodany pomyslnie!");
+}
+
+float IncomeManager::displayLastMonthIncomes()
+{
+    time_t lastMonthFirstDayUnixTime = AuxiliaryMethods::getLastMonthFirstDayUnixTime();
+    time_t lastMonthLastDayUnixTime = AuxiliaryMethods::getLastMonthLastDayUnixTime();
+
+    vector<Income> lastMonthIncomes;
+
+    for(int i = 0; i < incomes.size(); i++)
+    {
+        if(incomes[i].getDate() > lastMonthFirstDayUnixTime &&
+                incomes[i].getDate() < lastMonthLastDayUnixTime)
+        {
+            lastMonthIncomes.push_back(incomes[i]);
+        }
+    }
+
+    sort(lastMonthIncomes.begin(), lastMonthIncomes.end(), greater <>());
+
+    displayIncomeHeader();
+    displayIncomesVector(lastMonthIncomes);
+
+    return getTotalIncomesValueInVector(lastMonthIncomes);
 }

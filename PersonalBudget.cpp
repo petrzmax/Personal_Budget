@@ -65,7 +65,23 @@ void PersonalBudget::addExpense()
 
 void PersonalBudget::displayLastMonthBalance()
 {
+    float lastMonthIncomes, lastMonthExpenses;
 
+    system("cls");
+    cout << fixed;
+
+
+    lastMonthIncomes = incomeManager->displayLastMonthIncomes();
+    cout << endl;
+
+    lastMonthExpenses = expenseManager->displayLastMonthExpenses();
+
+    cout << endl << "Suma przychodow: " << lastMonthIncomes << endl;
+    cout << "Suma wydatkow: " << lastMonthExpenses << endl;
+    cout << "Bilans: " << lastMonthIncomes - lastMonthExpenses << endl;
+
+    cout << endl <<"Wcisnij dowolny klawisz aby powrocic do menu.";
+    getch();
 }
 
 void PersonalBudget::displayCurrentMonthBalance()
