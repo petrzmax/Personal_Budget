@@ -32,6 +32,7 @@ public:
     void  addIncome();
     float displayCurrentMonthIncomes();
     float displayLastMonthIncomes();
+    float displayChosenPeriodIncomes(time_t beginPeriodUnixTime, time_t endPeriodUnixTime);
 
 };
 

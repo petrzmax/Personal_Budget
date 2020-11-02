@@ -106,7 +106,31 @@ void PersonalBudget::displayCurrentMonthBalance()
 
 void PersonalBudget::displayChosenPeriodBalance()
 {
+    float chosenPeriodIncomes, chosenPeriodExpenses;
+    time_t beginPeriodUnixTime, endPeriodUnixTime;
 
+    system("cls");
+    cout << fixed;
+
+    cout << "Podaj date w formacie rrrr-mm-dd, od ktorej wyswietlic bilans: ";
+    beginPeriodUnixTime = AuxiliaryMethods::getCorrectDate();
+
+    cout << "Podaj date w formacie rrrr-mm-dd, do ktorej wyswietlic bilans: ";
+    endPeriodUnixTime = AuxiliaryMethods::getCorrectDate();
+
+    system("cls");
+
+    chosenPeriodIncomes = incomeManager->displayChosenPeriodIncomes(beginPeriodUnixTime, endPeriodUnixTime);
+    cout << endl;
+
+    chosenPeriodExpenses = expenseManager->displayChosenPeriodExpenses(beginPeriodUnixTime, endPeriodUnixTime);
+
+    cout << endl << "Suma przychodow: " << chosenPeriodIncomes << endl;
+    cout << "Suma wydatkow: " << chosenPeriodExpenses << endl;
+    cout << "Bilans: " << chosenPeriodIncomes - chosenPeriodExpenses << endl;
+
+    cout << endl <<"Wcisnij dowolny klawisz aby powrocic do menu.";
+    getch();
 }
 
 char PersonalBudget::selectOptionFromMainMenu()

@@ -130,3 +130,24 @@ float ExpenseManager::displayLastMonthExpenses()
 
     return getTotalExpensesValueInVector(lastMonthExpenses);
 }
+
+float ExpenseManager::displayChosenPeriodExpenses(time_t beginPeriodUnixTime, time_t endPeriodUnixTime)
+{
+    vector<Expense> lastMonthExpenses;
+
+    for(int i = 0; i < expenses.size(); i++)
+    {
+        if(expenses[i].getDate() > beginPeriodUnixTime &&
+                expenses[i].getDate() < endPeriodUnixTime)
+        {
+            lastMonthExpenses.push_back(expenses[i]);
+        }
+    }
+
+    sort(lastMonthExpenses.begin(), lastMonthExpenses.end(), greater <>());
+
+    displayExpenseHeader();
+    displayExpensesVector(lastMonthExpenses);
+
+    return getTotalExpensesValueInVector(lastMonthExpenses);
+}
