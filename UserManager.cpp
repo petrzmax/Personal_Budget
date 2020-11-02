@@ -63,6 +63,8 @@ void UserManager::loginUser()
 {
     string login;
 
+    system("cls");
+
     cout << "Podaj login: ";
     login = AuxiliaryMethods::getLine();
 
