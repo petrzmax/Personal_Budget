@@ -84,5 +84,24 @@ void  IncomeManager::addIncome()
 
 float IncomeManager::displayLastMonthIncomes()
 {
+    time_t lastMonthFirstDayUnixTime = AuxiliaryMethods::getLastMonthFirstDayUnixTime();
+    time_t lastMonthLastDayUnixTime = AuxiliaryMethods::getLastMonthLastDayUnixTime();
 
+    vector<Income> lastMonthIncomes;
+
+    for(int i = 0; i < incomes.size(); i++)
+    {
+        if(incomes[i].getDate() > lastMonthFirstDayUnixTime &&
+                incomes[i].getDate() < lastMonthLastDayUnixTime)
+        {
+            lastMonthIncomes.push_back(incomes[i]);
+        }
+    }
+
+    sort(lastMonthIncomes.begin(), lastMonthIncomes.end(), greater <>());
+
+    displayIncomeHeader();
+    displayIncomesVector(lastMonthIncomes);
+
+    return getTotalIncomesValueInVector(lastMonthIncomes);
 }
