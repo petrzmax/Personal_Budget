@@ -94,8 +94,8 @@ float ExpenseManager::displayCurrentMonthExpenses()
 
     for(int i = 0; i < expenses.size(); i++)
     {
-        if(expenses[i].getDate() > currentMonthfirstDayUnixTime &&
-                expenses[i].getDate() < currentTime)
+        if(expenses[i].getDate() >= currentMonthfirstDayUnixTime &&
+                expenses[i].getDate() <= currentTime)
         {
             currentMonthExpenses.push_back(expenses[i]);
         }
@@ -118,8 +118,8 @@ float ExpenseManager::displayLastMonthExpenses()
 
     for(int i = 0; i < expenses.size(); i++)
     {
-        if(expenses[i].getDate() > lastMonthFirstDayUnixTime &&
-                expenses[i].getDate() < lastMonthLastDayUnixTime)
+        if(expenses[i].getDate() >= lastMonthFirstDayUnixTime &&
+                expenses[i].getDate() <= lastMonthLastDayUnixTime)
         {
             lastMonthExpenses.push_back(expenses[i]);
         }
@@ -139,8 +139,8 @@ float ExpenseManager::displayChosenPeriodExpenses(time_t beginPeriodUnixTime, ti
 
     for(int i = 0; i < expenses.size(); i++)
     {
-        if(expenses[i].getDate() > beginPeriodUnixTime &&
-                expenses[i].getDate() < endPeriodUnixTime)
+        if(expenses[i].getDate() >= beginPeriodUnixTime &&
+                expenses[i].getDate() <= endPeriodUnixTime)
         {
             lastMonthExpenses.push_back(expenses[i]);
         }
