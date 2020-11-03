@@ -41,6 +41,8 @@ vector<Expense> ExpenseFile::loadExpensesFromFile(int loggedUserId)
             loadedExpense = getExpenseData();
             if(loadedExpense.getUserId() == loggedUserId)
                 expenses.push_back(loadedExpense);
+
+            lastExpenseId = loadedExpense.getExpenseId();
         }
         return expenses;
     }
@@ -74,4 +76,11 @@ void ExpenseFile::appendExpenseToFile(Expense expense)
     xml.AddElem("amount", to_string(expense.getAmount()));
 
     xml.Save(getFileName());
+
+    lastExpenseId++;
+}
+
+int ExpenseFile::getLastExpenseId()
+{
+    return lastExpenseId;
 }

@@ -45,7 +45,7 @@ int ExpenseManager::getNewExpenseId()
     if(expenses.empty())
         return 1;
     else
-        return expenses.back().getExpenseId() + 1;
+        return expenseFile.getLastExpenseId() + 1;
 }
 
 void ExpenseManager::displayExpenseHeader()

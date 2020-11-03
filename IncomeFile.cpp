@@ -41,6 +41,8 @@ vector<Income> IncomeFile::loadIncomesFromFile(int loggedUserId)
             loadedIncome = getIncomeData();
             if(loadedIncome.getUserId() == loggedUserId)
                 incomes.push_back(loadedIncome);
+
+            lastIncomeId = loadedIncome.getIncomeId();
         }
         return incomes;
     }
@@ -74,4 +76,11 @@ void IncomeFile::appendIncomeToFile(Income income)
     xml.AddElem("amount", to_string(income.getAmount()));
 
     xml.Save(getFileName());
+
+    lastIncomeId++;
+}
+
+int IncomeFile::getLastIncomeId()
+{
+    return lastIncomeId;
 }
