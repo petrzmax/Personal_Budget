@@ -94,8 +94,8 @@ float IncomeManager::displayCurrentMonthIncomes()
 
     for(int i = 0; i < incomes.size(); i++)
     {
-        if(incomes[i].getDate() > currentMonthfirstDayUnixTime &&
-                incomes[i].getDate() < currentTime)
+        if(incomes[i].getDate() >= currentMonthfirstDayUnixTime &&
+                incomes[i].getDate() <= currentTime)
         {
             currentMonthIncomes.push_back(incomes[i]);
         }
@@ -118,8 +118,8 @@ float IncomeManager::displayLastMonthIncomes()
 
     for(int i = 0; i < incomes.size(); i++)
     {
-        if(incomes[i].getDate() > lastMonthFirstDayUnixTime &&
-                incomes[i].getDate() < lastMonthLastDayUnixTime)
+        if(incomes[i].getDate() >= lastMonthFirstDayUnixTime &&
+                incomes[i].getDate() <= lastMonthLastDayUnixTime)
         {
             lastMonthIncomes.push_back(incomes[i]);
         }
@@ -139,8 +139,8 @@ float IncomeManager::displayChosenPeriodIncomes(time_t beginPeriodUnixTime, time
 
     for(int i = 0; i < incomes.size(); i++)
     {
-        if(incomes[i].getDate() > beginPeriodUnixTime &&
-                incomes[i].getDate() < endPeriodUnixTime)
+        if(incomes[i].getDate() >= beginPeriodUnixTime &&
+                incomes[i].getDate() <= endPeriodUnixTime)
         {
             lastMonthIncomes.push_back(incomes[i]);
         }

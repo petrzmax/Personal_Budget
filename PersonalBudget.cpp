@@ -74,7 +74,7 @@ void PersonalBudget::displayCurrentMonthBalance()
     currentMonthIncomes = incomeManager->displayCurrentMonthIncomes();
     cout << endl;
 
-    currentMonthExpenses = expenseManager->displayLastMonthExpenses();
+    currentMonthExpenses = expenseManager->displayCurrentMonthExpenses();
 
     cout << endl << "Suma przychodow: " << currentMonthIncomes << endl;
     cout << "Suma wydatkow: " << currentMonthExpenses << endl;
