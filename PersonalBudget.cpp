@@ -89,14 +89,22 @@ void PersonalBudget::displayChosenPeriodBalance()
     float chosenPeriodIncomes, chosenPeriodExpenses;
     time_t beginPeriodUnixTime, endPeriodUnixTime;
 
-    system("cls");
     cout << fixed;
 
-    cout << "Podaj date w formacie rrrr-mm-dd, od ktorej wyswietlic bilans: ";
-    beginPeriodUnixTime = AuxiliaryMethods::getCorrectDate();
+    while(true)
+    {
+        system("cls");
+        cout << "Podaj date w formacie rrrr-mm-dd, od ktorej wyswietlic bilans: ";
+        beginPeriodUnixTime = AuxiliaryMethods::getCorrectDate();
 
-    cout << "Podaj date w formacie rrrr-mm-dd, do ktorej wyswietlic bilans: ";
-    endPeriodUnixTime = AuxiliaryMethods::getCorrectDate();
+        cout << "Podaj date w formacie rrrr-mm-dd, do ktorej wyswietlic bilans: ";
+        endPeriodUnixTime = AuxiliaryMethods::getCorrectDate();
+
+        if(endPeriodUnixTime > beginPeriodUnixTime)
+            break;
+        else
+            AuxiliaryMethods::timedMessage("Nieprawidlowo wyznaczony przedzial czasu!\nPodaj daty ponownie.");
+    }
 
     system("cls");
 
